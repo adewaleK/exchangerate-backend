@@ -8,17 +8,6 @@ require('dotenv').config();
 const port = 4000;
 const PORT = process.env.PORT || port
 
-app.get('/api/rate/', async (req, res) =>{
-   
-    const api_url = `https://api.exchangeratesapi.io/latest`;
-    
-        const fetch_response = await fetch(api_url);
-
-        const jsonData = await fetch_response.json();
-   
-        res.json(jsonData);
-})
-
 app.get('/api/rates/:base/:symbols', async (req, res) =>{
     const base = req.params.base;
     const symbols = req.params.symbols;
